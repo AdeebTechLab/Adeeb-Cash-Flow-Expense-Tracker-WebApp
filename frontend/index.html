@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Adeeb Cash Flow — track income, expenses, accounts and savings with confidence.">
+  <title>Adeeb Cash Flow</title>
+  <link rel="icon" type="image/png" href="/assets/logos/adeeb-cash-flow-logo.png">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('adeeb-theme')||'light'}catch{}</script>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/sidebar-improvements.css?v=20260824-19">
+</head>
+<body>
+  <div id="loading-screen" class="loading-screen"><img class="brand-logo loading-logo" src="/assets/logos/adeeb-cash-flow-logo.png" alt="Adeeb Cash Flow"><div class="loader"></div></div>
+
+  <main id="auth-view" class="auth-view hidden">
+    <section class="auth-story">
+      <a class="auth-brand" href="#"><img class="brand-logo" src="/assets/logos/adeeb-cash-flow-logo.png" alt="Adeeb Cash Flow logo"><span><strong>Adeeb</strong><small>Cash Flow</small></span></a>
+      <div class="story-copy">
+        <span class="story-pill">YOUR MONEY, MADE CLEAR</span>
+        <h1>Know where every<br><em>rupee</em> goes.</h1>
+        <p>Track income, control expenses and build a stronger financial future from one beautifully simple workspace.</p>
+        <div class="story-stats"><div><strong>100%</strong><span>Private</span></div><div><strong>24/7</strong><span>Available</span></div><div><strong>1 place</strong><span>For all accounts</span></div></div>
+      </div>
+      <div class="floating-card fc-one"><span>↓</span><div><small>Income received</small><strong>Rs 85,000</strong></div></div>
+      <div class="floating-card fc-two"><div class="mini-ring"></div><div><small>Savings rate</small><strong>43.8%</strong></div></div>
+      <p class="auth-foot">Secure personal finance management for everyone.</p>
+    </section>
+
+    <section class="auth-form-wrap">
+      <div class="auth-card">
+        <div class="auth-heading"><p>WELCOME TO ADEEB CASH FLOW</p><h2 id="auth-title">Sign in to your account</h2><span id="auth-subtitle">Enter your details to continue.</span></div>
+        <div class="auth-tabs"><button id="login-tab" class="active" type="button">Log in</button><button id="signup-tab" type="button">Create account</button></div>
+        <form id="login-form" class="auth-form">
+          <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Password<span class="password-field"><input name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required><button class="show-password" type="button">Show</button></span></label>
+          <div class="form-between"><label class="check"><input name="remember" type="checkbox" checked> Keep me signed in</label><button class="link-button" type="button">Forgot password?</button></div>
+          <button class="primary-button auth-submit login-only" type="submit"><span>Login</span></button>
+        </form>
+        <form id="signup-form" class="auth-form hidden">
+          <div class="two-fields"><label>Full name<input name="name" autocomplete="name" placeholder="Your full name" required minlength="2"></label><label>Phone number<input name="phone" autocomplete="tel" placeholder="+92 300 0000000"></label></div>
+          <label>Email address<input name="email" type="email" autocomplete="email" placeholder="you@example.com" required></label>
+          <label>Password<span class="password-field"><input name="password" type="password" autocomplete="new-password" placeholder="Minimum 8 characters" minlength="8" required><button class="show-password" type="button">Show</button></span></label>
+          <label class="check terms"><input name="terms" type="checkbox" required> I agree to the Terms and Privacy Policy.</label>
+          <button class="primary-button auth-submit login-only" type="submit"><span>Sign up</span></button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <main id="app-view" class="app-layout hidden">
+    <aside class="sidebar">
+      <a class="brand" href="#overview"><img class="brand-logo" src="/assets/logos/adeeb-cash-flow-logo.png" alt="Adeeb Cash Flow logo"><span><strong>Adeeb</strong><small>Cash Flow</small></span></a>
+      <nav id="main-nav">
+        <p>WORKSPACE</p>
+        <button class="nav-button active" data-view="overview"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5.5 10v9.5h13V10M9.5 19.5v-6h5v6"/></svg></i><span>Overview</span></button>
+        <button class="nav-button" data-view="goals"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></svg></i><span>Goals</span></button>
+        <button class="nav-button" data-view="accounts"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h16v11H4zM7 7.5V5h10v2.5M7.5 12h9"/></svg></i><span>Accounts</span></button>
+        <button id="admin-nav" class="nav-button hidden" data-view="admin"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5 19 6v5c0 4.5-2.8 7.7-7 9.5C7.8 18.7 5 15.5 5 11V6zM9.5 11.5l1.7 1.7 3.5-3.7"/></svg></i><span>Admin panel</span></button>
+        <button id="admin-reports-nav" class="nav-button hidden" data-view="admin-reports"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19.5h16M6 16V9m6 7V4m6 12v-5"/></svg></i><span>Reports</span></button>
+      </nav>
+      <div class="sidebar-account">
+        <button id="profile-button" class="profile-button"><span id="profile-avatar" class="avatar">AK</span><span><strong id="profile-name">User</strong><small id="profile-role">Personal account</small></span><i>›</i></button>
+        <button id="logout-button" class="profile-signout" type="button"><span>↪</span> Sign out</button>
+      </div>
+    </aside>
+
+    <section class="app-content">
+      <header class="topbar">
+        <div class="topbar-identity"><div><p id="today-label">TODAY</p><h1 id="page-title">Good evening</h1></div></div>
+        <div class="top-actions"><label class="global-search"><span>⌕</span><input id="search-input" placeholder="Search transactions..."></label><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark mode" title="Dark mode"><span>☾</span></button><div class="currency-picker"><button id="currency-button" class="currency-button" type="button" aria-haspopup="listbox" aria-expanded="false"><span id="currency-current">PKR — Pakistani Rupee</span><i>⌄</i></button><div id="currency-menu" class="currency-menu hidden"><label class="currency-search">⌕<input id="currency-search" placeholder="Search currency..." autocomplete="off"></label><div id="currency-list" class="currency-list" role="listbox"></div></div></div><button id="open-transaction" class="primary-button"><span>＋</span> Add Funds</button></div>
+      </header>
+
+      <div class="page-container">
+        <section id="overview-view" class="app-page active-page">
+          <article class="panel overview-period-card"><div class="period-copy"><span>REPORTING PERIOD</span><h2>Financial overview</h2><p>Select a month or custom date range to update every report below.</p></div><div class="period-controls"><label class="main-month-picker"><span>Select month</span><input id="overview-month" type="month" aria-label="Select report month"></label><div class="period-mode-buttons"><button type="button" data-period-mode="all">All months</button><button type="button" data-period-mode="custom">Custom dates</button></div><div id="custom-date-range" class="custom-date-range hidden"><label><span>Start date</span><input id="period-start" type="date"></label><label><span>End date</span><input id="period-end" type="date"></label></div><button id="download-monthly-pdf" class="outline-button"><span>↓</span> Download PDF</button></div><div class="period-status"><span id="period-active-label">Current month</span><strong id="period-transaction-count">0 transactions</strong></div></article>
+          <div class="summary-cards"><article class="panel summary-card"><span class="summary-icon income-icon">↓</span><div><p>Total income</p><h3 id="total-income">Rs 0</h3><small>Money received</small></div></article><article class="panel summary-card"><span class="summary-icon expense-icon">↑</span><div><p>Total expense</p><h3 id="total-expense">Rs 0</h3><small>Money spent</small></div></article><article class="panel summary-card"><span class="summary-icon available-icon">Rs</span><div><p>Available balance</p><h3 id="available-balance">Rs 0</h3><small>Across all accounts</small></div></article></div>
+          <article class="balance-card panel">
+            <div class="balance-head"><div><p>Total balance</p><h2 id="total-balance">Rs 0</h2><span>↗ Live overview</span></div><div class="chart-controls"><button id="chart-style-toggle" type="button" title="Change graph style"><span>▥</span> Bars</button></div></div>
+            <div class="cash-chart"><div class="axis"><span>150k</span><span>100k</span><span>50k</span><span>0</span></div><div id="chart-bars" class="chart-bars"></div></div>
+            <div class="chart-months"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dec</span></div>
+            <div class="chart-legend"><span><i class="blue-dot"></i>Income</span><span><i class="pale-dot"></i>Expense</span></div>
+          </article>
+
+          <div class="dashboard-lower category-only"><article class="panel category-card"><div class="panel-heading"><div><h3>Spending by category</h3><p>Live breakdown</p></div><button>•••</button></div><div id="donut" class="donut"><div><strong id="donut-total">Rs 0</strong><span>Total spent</span></div></div><div id="category-list" class="category-list"></div></article></div>
+          <section id="overview-transactions" class="overview-transactions-section">
+            <article class="panel table-card"><div class="table-toolbar"><strong id="record-count">0 records</strong><div class="table-filter-summary"><span>Income<strong id="filtered-income">Rs 0</strong></span><span>Expense<strong id="filtered-expense">Rs 0</strong></span><span>Savings<strong id="filtered-savings">Rs 0</strong></span></div><div class="transaction-filters"><div class="filter-buttons"><button class="active" data-filter="all">All</button><button data-filter="income">Income</button><button data-filter="expense">Expense</button></div><label class="category-filter-control"><span>Category</span><select id="category-filter" aria-label="Filter transactions by category"><option value="all">All categories</option></select></label></div></div><div class="table-head"><span>Transaction</span><span>Category</span><span>Account</span><span>Date</span><span>Amount</span><span></span></div><div id="all-transactions" class="all-transactions"></div></article>
+          </section>
+        </section>
+
+        <section id="accounts-view" class="app-page"><div class="view-heading"><div><p>YOUR MONEY</p><h2>Accounts</h2><span>Balances across cash, banks and mobile wallets.</span></div><button id="open-account" class="primary-button">＋ Add new account</button></div><div id="account-grid" class="account-grid"></div></section>
+
+        <section id="goals-view" class="app-page">
+          <div class="view-heading"><div><p>PLAN AHEAD</p><h2>Goals</h2><span>Plan future purchases, bills and savings in one place.</span></div><button id="open-goal" class="primary-button">＋ Add goal</button></div>
+          <div class="goal-stats"><article class="panel"><span>◎</span><div><p>Pending goals</p><h3 id="goals-pending">0</h3></div></article><article class="panel"><span>Rs</span><div><p>Total planned</p><h3 id="goals-total">Rs 0</h3></div></article><article class="panel"><span>◷</span><div><p>Due this month</p><h3 id="goals-due">0</h3></div></article></div>
+          <div id="goals-grid" class="goals-grid"></div>
+        </section>
+
+        <section id="admin-view" class="app-page">
+          <div class="view-heading"><div><p>ADMINISTRATION</p><h2>User management</h2><span>View, edit, suspend or delete registered accounts.</span></div><button id="refresh-admin" class="outline-button">↻ Refresh</button></div>
+          <div class="admin-stats"><article class="panel"><span>♙</span><div><p>Total users</p><h3 id="admin-total-users">0</h3></div></article><article class="panel"><span>✓</span><div><p>Active users</p><h3 id="admin-active-users">0</h3></div></article><article class="panel"><span>⇄</span><div><p>Transactions</p><h3 id="admin-transactions">0</h3></div></article><article class="panel"><span>Rs</span><div><p>Platform volume</p><h3 id="admin-volume">0</h3></div></article></div>
+          <article class="panel admin-table-card"><div class="admin-table-top"><div><h3>Registered users</h3><p>Complete account and activity details</p></div><label class="admin-search">⌕ <input id="admin-search" placeholder="Search name, email or phone"></label></div><div class="admin-table-head"><span>User</span><span>Contact</span><span>Status</span><span>Activity</span><span>Joined</span><span>Actions</span></div><div id="admin-users" class="admin-users"></div></article>
+        </section>
+
+        <section id="admin-reports-view" class="app-page">
+          <div class="view-heading"><div><p>ADMIN REPORTS</p><h2>User financial reports</h2><span>Income, expenses and transaction activity for every registered user.</span></div><button id="refresh-admin-reports" class="outline-button">↻ Refresh</button></div>
+          <article class="panel admin-report-card"><div class="admin-report-head"><span>User</span><span>Total income</span><span>Total expense</span><span>Net balance</span><span>Transactions</span></div><div id="admin-report-users" class="admin-report-users"></div></article>
+        </section>
+      </div>
+    </section>
+  </main>
+
+  <div id="transaction-modal" class="modal-backdrop hidden"><form id="transaction-form" class="modal-card"><div class="modal-head"><div><p id="transaction-modal-label">NEW FUNDS</p><h2 id="transaction-modal-title">Add Funds</h2></div><button class="close-modal" type="button">×</button></div><input name="id" type="hidden"><div class="two-fields"><label>Type<select name="type"><option value="expense">Expense</option><option value="income">Income</option></select></label><label><span id="transaction-amount-label">Amount (PKR)</span><input name="amount" type="text" inputmode="numeric" maxlength="13" pattern="[0-9,]+" placeholder="0" autocomplete="off" required></label></div><label>Description<input name="title" placeholder="e.g. Client payment" maxlength="120" required></label><label>Goal / planned item <small>(optional)</small><select id="transaction-goal" name="goal"><option value="">No linked goal</option></select></label><div class="two-fields"><label>Category<select id="transaction-category" name="category"><option>Freelance</option><option>Salary</option><option>Business</option><option>Food</option><option>Rent</option><option>Utilities</option><option>Transport</option><option>Shopping</option><option>Other</option></select></label><label>Account<select id="transaction-account" name="account"><option>Cash</option></select></label></div><label id="custom-category-field" class="hidden">Custom category<input name="customCategory" maxlength="60" placeholder="e.g. Education"></label><label>Date<input name="transactionDate" type="date" required></label><label>Note <small>(optional)</small><textarea name="note" maxlength="500" placeholder="Add more detail..."></textarea></label><button id="transaction-submit" class="primary-button modal-submit" type="submit">Save Funds</button></form></div>
+
+  <div id="account-modal" class="modal-backdrop hidden"><form id="account-form" class="modal-card"><div class="modal-head"><div><p id="account-modal-label">NEW ACCOUNT</p><h2 id="account-modal-title">Add bank or wallet</h2></div><button class="close-account-modal" type="button">×</button></div><input name="id" type="hidden"><label>Account holder name<input name="accountName" placeholder="e.g. Salman Adeeb" maxlength="80" required></label><label>Bank / wallet name<input name="bankName" placeholder="e.g. Meezan Bank" maxlength="100" required></label><label><span id="opening-balance-label">Opening balance (PKR)</span><input name="openingBalance" type="number" value="0" min="-1000000000" max="1000000000" required></label><button id="account-submit" class="primary-button modal-submit" type="submit">Save new account</button></form></div>
+
+  <div id="goal-modal" class="modal-backdrop hidden"><form id="goal-form" class="modal-card"><div class="modal-head"><div><p id="goal-modal-label">NEW PLAN</p><h2 id="goal-modal-title">Add a goal</h2></div><button class="close-goal-modal" type="button">×</button></div><input name="id" type="hidden"><label>Goal or payment name<input name="title" maxlength="120" placeholder="e.g. Office rent or New laptop" required></label><select id="goal-kind" name="kind" class="hidden" aria-hidden="true"><option value="purchase">Future purchase</option><option value="bill">Bill / payment</option><option value="saving">Savings goal</option><option value="__other__">Other</option></select><div class="two-fields"><label><span id="goal-amount-label">Amount (PKR)</span><input name="amount" type="text" inputmode="numeric" maxlength="13" pattern="[0-9,]+" placeholder="0" autocomplete="off" required></label><label><span id="goal-saved-amount-label">Saved so far (PKR)</span><input name="savedAmount" type="text" inputmode="numeric" maxlength="13" pattern="[0-9,]+" value="0" placeholder="0" autocomplete="off" required></label></div><label id="custom-goal-kind-field" class="hidden">Custom type<input name="customKind" maxlength="60" placeholder="e.g. Investment"></label><div class="two-fields"><label>Due date<input name="dueDate" type="date" required></label><label>Repeat<select name="frequency"><option value="once">One time</option><option value="monthly">Every month</option><option value="yearly">Every year</option></select></label></div><label>Category<select id="goal-category" name="category"><option>Office</option><option>Housing</option><option>Utilities</option><option>Shopping</option><option>Education</option><option>Travel</option><option>Health</option><option>Other</option></select></label><label id="custom-goal-category-field" class="hidden">Custom category<input name="customGoalCategory" maxlength="60" placeholder="e.g. Investment"></label><label>Note <small>(optional)</small><textarea name="note" maxlength="500" placeholder="Add details or reminder..."></textarea></label><button id="goal-submit" class="primary-button modal-submit" type="submit">Save goal</button></form></div>
+
+  <div id="profile-modal" class="modal-backdrop hidden"><form id="profile-form" class="modal-card"><div class="modal-head"><div><p>MY PROFILE</p><h2>Edit your details</h2></div><button class="close-profile-modal" type="button">×</button></div><label>Full name<input name="name" maxlength="80" required></label><label>Email address<input name="email" type="email" maxlength="180" required></label><label>Phone number <small>(optional)</small><input name="phone" type="tel" maxlength="30" placeholder="e.g. 0300 1234567"></label><div class="two-fields"><label>City <small>(optional)</small><input name="city" maxlength="80" placeholder="e.g. Lahore"></label><label>Country <small>(optional)</small><input name="country" maxlength="80" placeholder="e.g. Pakistan"></label></div><button class="primary-button modal-submit" type="submit">Save profile</button></form></div>
+
+  <div id="user-modal" class="modal-backdrop hidden"><form id="user-form" class="modal-card admin-user-form"><div class="modal-head"><div><p>ADMIN ACTION</p><h2>Edit user</h2></div><button class="close-user-modal" type="button">×</button></div><input name="id" type="hidden"><label>Full name<input name="name" required></label><label>Email address<input name="email" type="email" required></label><label>Phone number<input name="phone"></label><div class="two-fields"><label>City<input name="city" maxlength="80" placeholder="Not provided"></label><label>Country<input name="country" maxlength="80" placeholder="Not provided"></label></div><label>Status<select name="status"><option value="active">Active</option><option value="suspended">Suspended</option></select></label><div class="admin-profile-summary"><div><span>Joined</span><strong id="user-detail-joined">—</strong></div><div><span>Last login</span><strong id="user-detail-login">—</strong></div><div><span>Accounts</span><strong id="user-detail-accounts">0</strong></div><div><span>Transactions</span><strong id="user-detail-transactions">0</strong></div><div class="wide"><span>Current balance</span><strong id="user-detail-balance">Rs 0</strong></div></div><button class="primary-button modal-submit" type="submit">Save user changes</button></form></div>
+  <div id="admin-transactions-modal" class="modal-backdrop hidden"><div class="modal-card admin-transactions-modal"><div class="modal-head"><div><p>USER REPORT</p><h2 id="admin-report-user-name">Transactions</h2><span id="admin-report-user-email" class="modal-subtitle"></span></div><button class="close-admin-transactions" type="button">×</button></div><div class="report-modal-summary"><div><span>Income</span><strong id="report-user-income">Rs 0</strong></div><div><span>Expense</span><strong id="report-user-expense">Rs 0</strong></div><div><span>Balance</span><strong id="report-user-balance">Rs 0</strong></div></div><div class="report-transaction-head"><span>Transaction</span><span>Category</span><span>Account</span><span>Date</span><span>Amount</span></div><div id="admin-report-transactions" class="report-transaction-list"></div></div></div>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <script type="module" src="/app.js?v=20260824-21"></script>
+</body>
+</html>
