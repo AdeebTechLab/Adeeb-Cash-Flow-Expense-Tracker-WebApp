@@ -19,8 +19,8 @@ export function verifySession(token) {
 export function setSessionCookie(res, token, remember = false) {
   const options = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
+    secure: true,
+    sameSite: 'none',
     path: '/',
   };
   if (remember) options.maxAge = 365 * 24 * 60 * 60 * 1000;
@@ -28,7 +28,12 @@ export function setSessionCookie(res, token, remember = false) {
 }
 
 export function clearSessionCookie(res) {
-  res.clearCookie(COOKIE_NAME, { httpOnly: true, secure: process.env.NODE_ENV === 'production', sameSite: 'strict', path: '/' });
+ res.clearCookie(COOKIE_NAME, {
+  httpOnly: true,
+  secure: true,
+  sameSite: 'none',
+  path: '/'
+});
 }
 
 export { COOKIE_NAME };
