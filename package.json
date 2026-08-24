@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "node --watch backend/server.js",
     "start": "node backend/server.js",
-    "check": "node --check backend/server.js && node --check backend/src/app.js && node --check frontend/app.js"
+    "check": "node --check backend/server.js && node --check backend/src/app.js && node --check api/[...path].js && node --check frontend/app.js"
   },
   "dependencies": {
     "bcryptjs": "^3.0.2",

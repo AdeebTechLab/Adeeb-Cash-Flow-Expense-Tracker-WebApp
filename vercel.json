@@ -7,6 +7,6 @@
     { "source": "/assets/:path*", "destination": "/frontend/assets/:path*" }
   ],
   "functions": {
-    "api/index.js": { "maxDuration": 30 }
+    "api/[...path].js": { "maxDuration": 60 }
   }
 }
