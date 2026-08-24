@@ -11,10 +11,23 @@ function money(value) { if (state.currency === 'PKR') return `Rs ${Number(value 
 function formatDate(value) { return new Date(value).toLocaleDateString('en-PK', { day: '2-digit', month: 'short', year: 'numeric' }); }
 function initials(name = 'User') { return name.split(/\s+/).slice(0, 2).map((word) => word[0]).join('').toUpperCase(); }
 
+const API_URL = "https://adeeb-cash-flow.onrender.com";
+
 async function api(path, options = {}) {
-  const response = await fetch(path, { credentials: 'include', headers: { 'content-type': 'application/json', ...(options.headers || {}) }, ...options });
+  const response = await fetch(`${API_URL}${path}`, {
+    method: options.method || "GET",
+    credentials: "include",
+    headers: {
+      "content-type": "application/json",
+      ...(options.headers || {})
+    },
+    body: options.body || undefined
+  });
+
   const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.message || 'Request failed.');
+
+  if (!response.ok) throw new Error(data.message || "Request failed.");
+
   return data;
 }
 
@@ -614,7 +627,7 @@ $('#download-monthly-pdf').addEventListener('click', () => {
   setBusy(button, true, 'Preparing...');
   const link = document.createElement('a');
   const rangeQuery = state.month === 'custom' ? '&start=' + encodeURIComponent(state.customStart) + '&end=' + encodeURIComponent(state.customEnd) : '&month=' + encodeURIComponent(state.month);
-  link.href = '/api/transactions/report.pdf?currency=' + encodeURIComponent(state.currency) + rangeQuery;
+  link.href = API_URL + '/api/transactions/report.pdf?currency=' + encodeURIComponent(state.currency) + rangeQuery;
   link.download = '';
   document.body.appendChild(link);
   link.click();
